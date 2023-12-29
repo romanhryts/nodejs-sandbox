@@ -50,17 +50,13 @@ class AsyncArray extends Array {
         }
         time = now;
         return new Promise(resolve => {
-          setTimeout(() => {
-            resolve({ value, done });
-          }, 0);
+          setTimeout(() => resolve(resolved), 0);
         });
       },
     };
   }
 }
 
-const INTERVAL = 1;
-let INTERVAL_EXECUTIONS_COUNT = 0;
-
-const aa = new AsyncArray(10000).withInterval(INTERVAL);
-
+// TODO:
+//  1. Add examples of the usage of both: asyncForEach and asyncIterator using for await ... of loop
+//  2. Provide async API for all iterable built-in array methods, such as .map(), .reduce(), .filter() etc...
